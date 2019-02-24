@@ -1,7 +1,8 @@
 
 function startClick(){
     console.log("Start Clicked !!");
-    console.log(parseFloat(amt1.value));
+    var ts = new Betsu(parseFloat(amt1.value));
+    //console.log(parseFloat(amt1.value));
 }
 
 function maininit(){
