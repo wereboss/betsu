@@ -9,15 +9,17 @@ class PageComponent {
     this.element = document.getElementById(this.elementName);
     switch (type) {
       case "input":
+        /*
         this.addEL(
           "click",
-          (event: any):void => {
-            console.log(this.elementName + " Clicked");
+          (event: any): void => {
+            console.log(this.elementName + " input Clicked");
           }
         );
+        */
         this.addEL(
           "keyup",
-          (event: any):void => {
+          (event: any): void => {
             event.preventDefault();
             if (event.keyCode === 13) {
               this.element.click();
@@ -29,7 +31,7 @@ class PageComponent {
         this.addEL(
           "click",
           (event: any): void => {
-            console.log(this.elementName + " Clicked");
+            console.log(this.elementName + " Button Clicked");
           }
         );
         break;
@@ -44,7 +46,7 @@ class PageComponent {
   val(): any {
     switch (this.eletype) {
       case "input":
-      return this.element.value;
+        return this.element.value;
         break;
       case "button":
         break;
@@ -52,42 +54,44 @@ class PageComponent {
       default:
         break;
     }
-    //RESTART HERE
   }
+}
+interface PageConfig {
+  spendAmountElement: string;
+  sharerBlockNode: string;
 }
 
 class Page {
   selfTracker: number;
   editSpend: Betsu = new Betsu(0);
-  amtSpend: PageComponent = new PageComponent("amt1", "input");
-  startButton: PageComponent = new PageComponent("butstart", "button");
+  amtSpend: PageComponent;
+  sharersArr: PageComponent[];
+  //startButton: PageComponent = new PageComponent("butstart", "button");
 
-  constructor() {
+  constructor(pgconfig?: PageConfig) {
     this.selfTracker = 0;
-    this.amtSpend.addEL(
-      "click",
-      (): void => {
-        console.log("Start Clicked !!");
-        this.editSpend.updateMe(parseFloat(this.amtSpend.val()));
-        //console.log(parseFloat(amt1.value));
-      }
-    );
-    this.maininit();
-  }
-  maininit(): void {
-    var amt1: any,
-      butstart: any,
-      amt2: any,
-      amt3: any,
-      amt4,
-      butplus: any,
-      butminus: any;
-
-    console.log("maininit function");
+    if (pgconfig) {
+      this.amtSpend = new PageComponent(pgconfig.spendAmountElement, "input");
+      this.amtSpend.addEL(
+        "click",
+        (): void => {
+          console.log(pgconfig.spendAmountElement + " custom clicked !!");
+          this.editSpend.updateMe(parseFloat(this.amtSpend.val()));
+          //console.log(parseFloat(amt1.value));
+        }
+      );
+      //this.amtSpend = new PageComponent(pgconfig.sharerBlockNode, "input");
+    } else {
+      this.amtSpend = new PageComponent("dummynode", "input");
+    }
+    //this.maininit();
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("ready!");
-  var thispage = new Page();
+  var thispage = new Page({
+    spendAmountElement: "amt1",
+    sharerBlockNode: "sharers"
+  });
 });
