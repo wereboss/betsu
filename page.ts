@@ -1,3 +1,4 @@
+//---------------------
 class PageComponent {
   element: any;
   elementName: string;
@@ -87,11 +88,22 @@ class Page {
     //this.maininit();
   }
 }
+//-------------------------
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("ready!");
+  /*
   var thispage = new Page({
     spendAmountElement: "amt1",
     sharerBlockNode: "sharers"
+  });
+  */
+  var tmpBetsu = new Betsu({
+    Spend: 61,
+    sharer: [
+      { iN: "Me",iS:61, iU: 10 },
+      { iN: "Sam"},
+      { iN: "Tom"}
+    ]
   });
 });

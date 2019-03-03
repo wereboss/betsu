@@ -1,4 +1,5 @@
 "use strict";
+//---------------------
 var PageComponent = /** @class */ (function () {
     function PageComponent(elename, type) {
         var _this = this;
@@ -69,10 +70,21 @@ var Page = /** @class */ (function () {
     }
     return Page;
 }());
+//-------------------------
 document.addEventListener("DOMContentLoaded", function () {
     console.log("ready!");
+    /*
     var thispage = new Page({
-        spendAmountElement: "amt1",
-        sharerBlockNode: "sharers"
+      spendAmountElement: "amt1",
+      sharerBlockNode: "sharers"
+    });
+    */
+    var tmpBetsu = new Betsu({
+        Spend: 61,
+        sharer: [
+            { iN: "Me", iS: 61, iU: 10 },
+            { iN: "Sam" },
+            { iN: "Tom" }
+        ]
     });
 });
