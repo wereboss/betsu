@@ -1,5 +1,4 @@
 "use strict";
-//---------------------
 var PageComponent = /** @class */ (function () {
     function PageComponent(elename, type) {
         var _this = this;

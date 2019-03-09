@@ -51,24 +51,6 @@ var Betsu = /** @class */ (function () {
                 ",Sharers:" +
                 _this.sharers.length);
             console.log("Betsu Object:" + JSON.stringify(_this, null, 4));
-            /*
-            for (let inx = 0; inx < this.sharers.length; inx++) {
-              sharertext +=
-                "[" +
-                this.sharers[inx].sharerName +
-                ":" +
-                this.sharers[inx].sharerSpend +
-                ":" +
-                this.sharers[inx].sharerOwes +
-                ":" +
-                this.sharers[inx].sharerUses +
-                ":" +
-                this.sharers[inx].isPayer +
-                "],";
-            }
-            
-            console.log("Sharer Arr:" + sharertext);
-            */
         };
         if (this.checkData(iniConfig)) {
             this.totalSpend = iniConfig.Spend;
@@ -219,3 +201,6 @@ var Betsu = /** @class */ (function () {
     Betsu.minsharers = 2;
     return Betsu;
 }());
+exports.Sharer = Sharer;
+exports.Settle = Settle;
+exports.Betsu = Betsu;

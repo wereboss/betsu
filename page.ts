@@ -1,4 +1,10 @@
 //---------------------
+interface GenElement {
+  getNumValue?(): number;
+  getStrValue?(): string;
+  setNumValue?(): number;
+  setStrValue?(): string;
+}
 class PageComponent {
   element: any;
   elementName: string;

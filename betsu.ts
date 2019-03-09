@@ -1,9 +1,3 @@
-interface GenElement {
-  getNumValue?(): number;
-  getStrValue?(): string;
-  setNumValue?(): number;
-  setStrValue?(): string;
-}
 interface SharerData {
   iN: string;
   iS: number;
@@ -228,23 +222,9 @@ class Betsu {
         this.sharers.length
     );
     console.log("Betsu Object:" + JSON.stringify(this, null, 4));
-    /*
-    for (let inx = 0; inx < this.sharers.length; inx++) {
-      sharertext +=
-        "[" +
-        this.sharers[inx].sharerName +
-        ":" +
-        this.sharers[inx].sharerSpend +
-        ":" +
-        this.sharers[inx].sharerOwes +
-        ":" +
-        this.sharers[inx].sharerUses +
-        ":" +
-        this.sharers[inx].isPayer +
-        "],";
-    }
-    
-    console.log("Sharer Arr:" + sharertext);
-    */
   };
 }
+
+exports.Sharer = Sharer;
+exports.Settle = Settle;
+exports.Betsu = Betsu;
