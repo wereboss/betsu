@@ -28,12 +28,17 @@ var Settle = /** @class */ (function () {
         var oRemoved = this.arrSharers.splice(nId, 1);
         this.genSettlement();
     };
-    Settle.prototype.updateSharer = function (nId, oSh) {
+    Settle.prototype.updateSharer = function (nId, nSp, sN, nSh) {
         //console.log("Settle:updateSharer");
         var arrSharer = this.arrSharers[nId];
-        arrSharer.nSpend = oSh.nSpend;
-        arrSharer.nShare = oSh.nShare;
-        arrSharer.bPreShare = oSh.bPreShare;
+        arrSharer.nSpend = nSp;
+        if (nSh) {
+            arrSharer.nShare = nSh;
+            arrSharer.bPreShare = true;
+        }
+        if (sN) {
+            arrSharer.sName = sN;
+        }
         this.genSettlement();
     };
     Settle.prototype.createSharer = function (nSp, sN, nSh) {

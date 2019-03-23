@@ -30,12 +30,12 @@ class Settle {
     let oRemoved = this.arrSharers.splice(nId, 1);
     this.genSettlement();
   }
-  updateSharer(nId: number, oSh: Sharer) {
+  updateSharer(nId: number, nSp: number, sN?: string, nSh?: number) {
     //console.log("Settle:updateSharer");
     let arrSharer = this.arrSharers[nId];
-    arrSharer.nSpend = oSh.nSpend;
-    arrSharer.nShare = oSh.nShare;
-    arrSharer.bPreShare = oSh.bPreShare;
+    arrSharer.nSpend = nSp;
+    if(nSh){arrSharer.nShare = nSh;arrSharer.bPreShare=true;}
+    if(sN){arrSharer.sName = sN;}
     this.genSettlement();
   }
   createSharer(nSp: number, sN?: string, nSh?: number): Sharer {
