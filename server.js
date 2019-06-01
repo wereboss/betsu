@@ -23,3 +23,4 @@ oSettle.createSharer(0, "someone");
 oSettle.removeSharer(2);
 oSettle.updateSharer(2, 5, "o2");
 //# sourceMappingURL=server.js.map
+//sample
